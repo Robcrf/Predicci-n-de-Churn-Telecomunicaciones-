@@ -1,102 +1,102 @@
-# Predicción de Fuga de Clientes (Churn) en Telecomunicaciones
+# Telecom Customer Churn Prediction
 
-Este repositorio contiene un proyecto de ciencia de datos enfocado en predecir la fuga de clientes (churn) para una empresa de telecomunicaciones. El objetivo es construir un modelo de Machine Learning que identifique a los clientes con alta probabilidad de cancelar su servicio, permitiendo a la empresa implementar estrategias de retención de manera proactiva.
+This repository contains a data science project focused on predicting customer churn for a telecommunications company. The goal is to build a Machine Learning model that identifies customers with a high probability of canceling their service, allowing the company to implement proactive retention strategies.
 
 ---
 
-## 📋 Tabla de Contenidos
-- [Objetivo del Proyecto](#-objetivo-del-proyecto)
+## 📋 Table of Contents
+- [Project Objective](#-project-objective)
 - [Dataset](#-dataset)
-- [Metodología](#-metodología)
-- [Resultados y Conclusiones](#-resultados-y-conclusiones)
-- [Cómo Utilizar este Repositorio](#-cómo-utilizar-este-repositorio)
-- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
+- [Methodology](#-methodology)
+- [Results and Conclusions](#-results-and-conclusions)
+- [How to Use this Repository](#-how-to-use-this-repository)
+- [Technologies Used](#-technologies-used)
 
 ---
 
-## 🎯 Objetivo del Proyecto
+## 🎯 Project Objective
 
-El principal objetivo es reducir la pérdida de ingresos causada por la fuga de clientes. Esto se logra a través de:
-1.  **Análisis Exploratorio de Datos (EDA):** Identificar los factores y características clave que más influyen en la decisión de un cliente de abandonar la compañía.
-2.  **Modelado Predictivo:** Desarrollar y evaluar múltiples modelos de clasificación para encontrar el que mejor prediga el churn.
-3.  **Recomendaciones Estratégicas:** Proporcionar a la empresa insights accionables basados en los hallazgos para mejorar la retención de clientes.
+The main objective is to reduce revenue loss caused by customer churn. This is achieved through:
+1.  **Exploratory Data Analysis (EDA):** Identifying the key factors and characteristics that most influence a customer's decision to leave the company.
+2.  **Predictive Modeling:** Developing and evaluating multiple classification models to find the one that best predicts churn.
+3.  **Strategic Recommendations:** Providing the company with actionable insights based on the findings to improve customer retention.
 
 ---
 
 ## 💾 Dataset
 
-Los datos están segmentados en cuatro archivos CSV, que contienen información sobre los contratos, servicios de internet, datos personales y servicios telefónicos de los clientes.
+The data is segmented into four CSV files, containing information about customer contracts, internet services, personal data, and phone services.
 
-- `contract.csv`: Detalles del contrato, método de pago y cargos.
-- `internet.csv`: Información sobre servicios de internet como seguridad online, soporte técnico, etc.
-- `personal.csv`: Datos demográficos del cliente (género, si es adulto mayor, etc.).
-- `phone.csv`: Información sobre si el cliente tiene servicio telefónico y líneas múltiples.
+- `contract.csv`: Contract details, payment method, and charges.
+- `internet.csv`: Information on internet services such as online security, tech support, etc.
+- `personal.csv`: Customer demographic data (gender, senior citizen status, etc.).
+- `phone.csv`: Information on whether the customer has phone service and multiple lines.
 
-El notebook `Telecom_Churn_Prediction_Portfolio_v2.ipynb` unifica y procesa estos archivos para el análisis.
-
----
-
-## ⚙️ Metodología
-
-El proyecto sigue un flujo de trabajo estructurado de ciencia de datos:
-
-1.  **Carga y Limpieza de Datos:** Se cargan los 4 datasets, se corrigen los tipos de datos y se fusionan en un único DataFrame.
-2.  **Ingeniería de Características:** Se crean nuevas variables como `churn` (nuestra variable objetivo) y `tenure_months` (antigüedad del cliente).
-3.  **Análisis Exploratorio (EDA):** Se utilizan visualizaciones para entender la distribución de los datos y la relación entre las variables y la tasa de churn.
-4.  **Preprocesamiento para Modelado:** Se prepara el dataset para el entrenamiento, aplicando escalado a las variables numéricas y codificación (One-Hot Encoding) a las categóricas.
-5.  **Manejo de Desbalance de Clases:** Se utiliza la técnica SMOTENC para sobremuestrear la clase minoritaria (clientes que hacen churn) y asegurar que el modelo aprenda a identificarla correctamente.
-6.  **Entrenamiento y Evaluación:** Se entrenan y evalúan 5 modelos de clasificación diferentes (Dummy, Regresión Logística, Árbol de Decisión, Random Forest y XGBoost). El rendimiento se mide utilizando métricas como F1-Score, Precisión y Recall, además de la matriz de confusión.
+The `Telecom_Churn_Prediction_Portfolio_v2.ipynb` notebook unifies and processes these files for analysis.
 
 ---
 
-## 📊 Resultados y Conclusiones
+## ⚙️ Methodology
 
-### Hallazgos Clave del Análisis
-- **Tipo de Contrato:** Los clientes con contratos `Mes a mes` son drásticamente más propensos a cancelar.
-- **Antigüedad:** Los clientes nuevos tienen una probabilidad mucho mayor de irse. La lealtad aumenta significativamente con el tiempo.
-- **Servicios de Soporte:** La falta de servicios como `Soporte Técnico` y `Seguridad Online` está fuertemente correlacionada con una mayor tasa de churn.
+The project follows a structured data science workflow:
 
-### Rendimiento del Modelo
-El modelo **Random Forest** fue seleccionado como el de mejor rendimiento general, logrando un **F1-Score de 0.61** para la clase minoritaria (Churn). Este modelo ofrece un excelente equilibrio entre la capacidad de identificar correctamente a los clientes que se irán (Recall) y no clasificar erróneamente a los clientes leales (Precision).
-
-### Recomendaciones Estratégicas
-1.  **Fidelizar a Clientes Nuevos:** Implementar campañas de bienvenida y seguimiento durante los primeros meses.
-2.  **Incentivar Contratos a Largo Plazo:** Ofrecer descuentos o beneficios a los clientes con contratos `Mes a mes` para que migren a planes anuales.
-3.  **Promover Servicios de Valor:** Ofrecer paquetes que incluyan `Soporte Técnico` y `Seguridad Online` a los clientes de alto riesgo.
+1.  **Data Loading and Cleaning:** The 4 datasets are loaded, data types are corrected, and they are merged into a single DataFrame.
+2.  **Feature Engineering:** New variables such as `churn` (our target variable) and `tenure_months` are created.
+3.  **Exploratory Data Analysis (EDA):** Visualizations are used to understand the data distribution and the relationship between variables and the churn rate.
+4.  **Preprocessing for Modeling:** The dataset is prepared for training by applying scaling to numerical variables and One-Hot Encoding to categorical ones.
+5.  **Handling Class Imbalance:** The SMOTENC technique is used to oversample the minority class (customers who churn) to ensure the model learns to identify it correctly.
+6.  **Training and Evaluation:** 5 different classification models are trained and evaluated (Dummy, Logistic Regression, Decision Tree, Random Forest, and XGBoost). Performance is measured using metrics like F1-Score, Precision, and Recall, in addition to the confusion matrix.
 
 ---
 
-## 🚀 Cómo Utilizar este Repositorio
+## 📊 Results and Conclusions
 
-1.  **Clona el repositorio:**
+### Key Findings from the Analysis
+- **Contract Type:** Customers with `Month-to-month` contracts are drastically more likely to churn.
+- **Tenure:** New customers have a much higher probability of leaving. Loyalty increases significantly over time.
+- **Support Services:** The lack of services like `Tech Support` and `Online Security` is strongly correlated with a higher churn rate.
+
+### Model Performance
+The **Random Forest** model was selected as the best overall performer, achieving an **F1-Score of 0.61** for the minority class (Churn). This model offers an excellent balance between the ability to correctly identify customers who will leave (Recall) and not misclassifying loyal customers (Precision).
+
+### Strategic Recommendations
+1.  **Retain New Customers:** Implement welcome and follow-up campaigns during the first few months.
+2.  **Incentivize Long-Term Contracts:** Offer discounts or benefits to customers with `Month-to-month` contracts to encourage them to switch to annual plans.
+3.  **Promote Value-Added Services:** Offer packages that include `Tech Support` and `Online Security` to high-risk customers.
+
+---
+
+## 🚀 How to Use this Repository
+
+1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Robcrf/Predicci-n-de-Churn-Telecomunicaciones-.git
+    git clone https://github.com/Robcrf/Prediccion-de-Churn-Telecomunicaciones-.git
     ```
-2.  **Navega al directorio del proyecto:**
+2.  **Navigate to the project directory:**
     ```bash
-    cd Predicci-n-de-Churn-Telecomunicaciones-
+    cd Prediccion-de-Churn-Telecomunicaciones-
     ```
-3.  **Instala las dependencias:**
-    Asegúrate de tener las librerías listadas en la sección de tecnologías. Puedes instalarlas usando pip:
+3.  **Install the dependencies:**
+    Make sure you have the libraries listed in the technologies section. You can install them using pip:
     ```bash
     pip install pandas numpy matplotlib seaborn scikit-learn xgboost imbalanced-learn
     ```
-4.  **Ejecuta el Jupyter Notebook:**
-    Abre y ejecuta las celdas en `Telecom_Churn_Prediction_Portfolio_v2.ipynb` para replicar el análisis y los resultados.
+4.  **Run the Jupyter Notebook:**
+    Open and run the cells in `Telecom_Churn_Prediction_Portfolio_v2.ipynb` to replicate the analysis and results.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
 - **Python 3**
-- **Pandas:** Para manipulación y análisis de datos.
-- **NumPy:** Para operaciones numéricas.
-- **Matplotlib & Seaborn:** Para visualización de datos.
-- **Scikit-learn:** Para preprocesamiento, modelado y evaluación.
-- **Imbalanced-learn:** Para manejar el desbalance de clases (SMOTENC).
-- **XGBoost:** Para el modelo de Gradient Boosting.
-- **Jupyter Notebook:** Como entorno de desarrollo.
+- **Pandas:** For data manipulation and analysis.
+- **NumPy:** For numerical operations.
+- **Matplotlib & Seaborn:** For data visualization.
+- **Scikit-learn:** For preprocessing, modeling, and evaluation.
+- **Imbalanced-learn:** For handling class imbalance (SMOTENC).
+- **XGBoost:** For the Gradient Boosting model.
+- **Jupyter Notebook:** As a development environment.
 
 ---
 
-*Última actualización: 11 de diciembre de 2025*
+*Last updated: December 11, 2025*
